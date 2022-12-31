@@ -40,17 +40,15 @@
         const localStatsJSON = localStorage.getItem('STATS')
         const localWordsJSON = localStorage.getItem('WORDS')
         const localStats = JSON.parse(localStatsJSON || "[]")
-        const localWords = JSON.stringify(localWordsJSON || "[]")
+        const localWords = JSON.parse(localWordsJSON || "{}")
 
         const search = new URLSearchParams()
         search.set('stats', JSON.stringify(localStats))
         search.set('words', JSON.stringify(localWords))
 
         window.location.replace(`https://imbroglio.com.br?${search.toString()}`)
-
       } catch {
         window.location.replace(`https://imbroglio.com.br`)
-        // 
       }
     </script>
   </body>
